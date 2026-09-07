@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>For Ren 👸🏻❤️</title>
+<meta name="theme-color" content="#070609">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap');
+:root{--bg:#070609;--panel:#111015;--soft:#171319;--text:#fbf7f8;--muted:#aaa0a6;--rose:#f2a7ba;--gold:#ead19d;--line:#30282e}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text)}
+body{font-family:"DM Sans",sans-serif;overflow:hidden}
+.page{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:26px;opacity:0;visibility:hidden;transform:translateX(28px);transition:opacity .55s ease,transform .55s ease,visibility .55s}
+.page.active{opacity:1;visibility:visible;transform:none;z-index:2}
+.page.prev{transform:translateX(-28px)}
+.wrap{width:min(1050px,94vw);max-height:94svh;overflow:auto;scrollbar-width:none}.wrap::-webkit-scrollbar{display:none}
+.center{text-align:center}.eyebrow{text-transform:uppercase;letter-spacing:.25em;color:var(--rose);font-size:10px}
+h1,h2,h3,.serif{font-family:"Cormorant Garamond",serif;font-weight:500}
+h1{font-size:clamp(70px,16vw,150px);line-height:.78;margin:22px 0 30px}
+h2{font-size:clamp(48px,8vw,86px);line-height:.9;margin:15px 0 28px}
+h3{font-size:35px;margin:10px 0}
+p{line-height:1.8;color:var(--muted);font-size:14px}
+.btn{appearance:none;border:1px solid #4a3941;background:#ffffff08;color:var(--text);border-radius:999px;padding:13px 20px;font:600 12px "DM Sans";cursor:pointer;margin:7px;transition:.25s;backdrop-filter:blur(10px)}
+.btn:hover{background:#fff1;transform:translateY(-2px)}.primary{border-color:#d18ca0;background:#f2a7ba1a}
+.nav{position:fixed;left:0;right:0;bottom:18px;display:flex;justify-content:center;z-index:20;pointer-events:none}.nav .btn{pointer-events:auto}
+.progress{position:fixed;top:18px;left:50%;transform:translateX(-50%);display:flex;gap:5px;z-index:20}.bar{width:24px;height:2px;background:#ffffff20;border-radius:5px}.bar.on{background:var(--rose)}
+.hero-sub{max-width:560px;margin:auto}
+.photo-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:14px;align-items:stretch}
+.photo-card{border-radius:24px;overflow:hidden;border:1px solid var(--line);background:var(--panel);position:relative}
+.photo-card img{width:100%;height:100%;min-height:260px;object-fit:cover;display:block}.photo-tall{min-height:480px}.caption{position:absolute;left:0;right:0;bottom:0;padding:50px 20px 18px;background:linear-gradient(transparent,#08070be8);font-family:"Cormorant Garamond";font-size:25px}
+.story{max-width:720px;margin:auto}.date{color:var(--gold);letter-spacing:.2em;font-size:11px}.story p{white-space:pre-line}
+.quote{font:500 clamp(31px,5vw,55px)/1.05 "Cormorant Garamond";max-width:800px;margin:35px auto}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.mini{padding:20px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(145deg,#151117,#0d0b0f);min-height:120px}.mini b{display:block;margin:8px 0 4px;font-size:14px}.mini span{color:var(--muted);font-size:12px;line-height:1.5}
+.memory{display:flex;justify-content:center;align-items:center;gap:14px}.memory img{width:min(520px,100%);height:420px;object-fit:cover;border-radius:24px;border:1px solid var(--line);display:block}
+.music{display:grid;grid-template-columns:1fr 1fr;gap:14px}.musicbox{padding:25px;border:1px solid var(--line);border-radius:24px;background:var(--panel)}.song{padding:11px 0;border-bottom:1px solid #ffffff0c;display:flex;justify-content:space-between}.song:last-child{border:0}.heart{color:var(--rose)}
+.future{display:flex;flex-wrap:wrap;gap:9px;justify-content:center}.pill{padding:10px 14px;border:1px solid var(--line);border-radius:999px;color:#d8d0d3}
+.letter{background:linear-gradient(145deg,#171117,#0d0a0e);border:1px solid #342931;border-radius:28px;padding:28px clamp(25px,6vw,70px);max-width:850px;margin:auto}.letter p{font:400 clamp(20px,3vw,27px)/1.5 "Cormorant Garamond";color:#e9dfe2}
+.final h2{font-size:clamp(58px,11vw,110px)}.big-heart{font-size:60px;animation:pulse 1.7s infinite}@keyframes pulse{50%{transform:scale(1.13)}}
+.secret{display:none;font:500 34px "Cormorant Garamond";color:var(--rose);margin:24px auto}.secret.show{display:block;animation:up .7s}@keyframes up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.floating{position:fixed;bottom:-30px;z-index:30;pointer-events:none;animation:float 7s linear forwards;opacity:.7}@keyframes float{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+.video-wrap{max-width:700px;margin:auto;border-radius:24px;overflow:hidden;border:1px solid var(--line);background:#000}.video-wrap video{width:100%;max-height:62svh;display:block}
+@media(max-width:700px){.photo-grid,.music{grid-template-columns:1fr}.memory{display:flex}.memory img{width:min(520px,100%);height:400px}.photo-tall{min-height:400px}.cards{grid-template-columns:1fr 1fr}.mini{min-height:105px;padding:16px}.wrap{max-height:88svh}p{font-size:13px}.caption{font-size:22px}}
+@media(max-width:430px){.cards{grid-template-columns:1fr}.hero-sub{padding:0 5px}}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<section class="page active" data-title="Start">
+<div class="wrap center">
+<div class="eyebrow">A private little universe</div>
+<h1>Ren(The Love of My Life)❤️</h1>
+<p class="hero-sub">For the girl who somehow became my favourite notification.<br><br>I made this because I wanted to give you something made entirely out of the little things I remember about you.</p>
+<br><button class="btn primary" onclick="go(1)">Open this for me →</button>
+</div>
+</section>
+
+<section class="page" data-title="Ready">
+<div class="wrap center">
+<div class="eyebrow">Before we begin</div>
+<h2>Are you ready?</h2>
+<p>There are memories in here. Most beautiful moments of my life. 🫠</p>
+<button class="btn primary" onclick="go(2)">I'm ready 🥹❤️</button>
+<button class="btn" onclick="go(0)">I'm not ready 🙄</button>
+</div>
+</section>
+
+<section class="page" data-title="Beginning">
+<div class="wrap">
+<div class="eyebrow">01 · The beginning</div><h2>01 August 2026</h2>
+<div class="story"><div class="date">FIRST DM</div><h3>The good morning.</h3>
+<p>My first good morning text and a turning point in my life.
+
+Little did I know that it would turn into something so close to my heart.</p></div>
+<div class="center"><button class="btn primary" onclick="go(3)">Next memory →</button></div>
+</div>
+</section>
+
+<section class="page" data-title="First Date">
+<div class="wrap">
+<div class="eyebrow">02 · First date</div><h2>10 August 2026</h2>
+<div class="photo-grid">
+<div class="photo-card photo-tall"><img src="assets/flowers.jpg"><div class="caption">She came in like she was bathed in sunlight. ❤️</div></div>
+<div class="photo-card"><img src="assets/memory4.jpg"><div class="caption">Funny. Energetic. My shot of espresso.</div></div>
+</div>
+<div class="story"><p>Spider-Man BND. Her favourite flowers. Chocolates.
+
+She gave me access to a part of her world that only a few people get to see — even her nickname, Monti.
+
+And yes… that beauty spot on her nose and the one on her ear too. Beautyyy.</p></div>
+<div class="center"><button class="btn primary" onclick="go(4)">Keep going →</button></div>
+</div>
+</section>
+
+<section class="page" data-title="Flowers">
+<div class="wrap">
+<div class="eyebrow">A small thing I remember</div><h2>Flowers for her. 🌸</h2>
+<div class="memory">
+<img src="assets/memory4.jpg">
+</div>
+<div class="quote">“You like lilies and blue orchids. I will always remember that.”</div>
+<div class="center"><button class="btn primary" onclick="go(5)">Next →</button></div>
+</div>
+</section>
+
+<section class="page" data-title="Second Date">
+<div class="wrap">
+<div class="eyebrow">03 · The night</div><h2>01 September 2026</h2>
+<div class="photo-grid">
+<div class="photo-card photo-tall"><img src="assets/memory1.jpg"><div class="caption">Effortlessly gorgeous.</div></div>
+<div class="photo-card"><img src="assets/memory2.jpg"><div class="caption">And she smelled so gooooooodddd.</div></div>
+</div>
+<div class="story"><p>Flowers. Favourite matchas. Her friend's place. Khameera.
+
+Then the rain was so hard.
+
+Holding her cute little hand was one of the best feelings ever.
+
+And then came the best moment…
+
+<strong>OUR FIRST EVER KISS. 🫠🫠🫠</strong>
+
+The hugs were the best. The kisses. Everything. I didn't want her to go.</p></div>
+<div class="center"><button class="btn primary" onclick="go(6)">The next part… →</button></div>
+</div>
+</section>
+
+<section class="page" data-title="Our Moment">
+<div class="wrap center">
+<div class="eyebrow">The moment</div>
+<h2>I fell in love again.</h2>
+<div class="quote">“Unknowingly, we said I LOVE YOU to each other… because we do.”</div>
+<p class="hero-sub">The first time someone said this to me and I still can't completely process it.</p>
+<p class="hero-sub">But I know this: <strong>I want to keep choosing you.</strong></p>
+<div class="big-heart">❤️</div>
+<button class="btn primary" onclick="go(7)">Next →</button>
+</div>
+</section>
+
+<section class="page" data-title="Things I Remember">
+<div class="wrap">
+<div class="eyebrow">04 · I listen to you</div><h2>The little things.</h2>
+<p>You told me that small things matter. So here's proof that I was listening.</p>
+<div class="cards">
+<div class="mini">🌸<b>Lilies & blue orchids</b><span>Your kind of flowers.</span></div>
+<div class="mini">☕<b>Strawberry Iced Matcha</b><span>And Vietnamese iced coffee.</span></div>
+<div class="mini">🍫<b>Normal KitKat</b><span>Dark = NO. I remember. 😭</span></div>
+<div class="mini">🐧<b>Penguins</b><span>Whales, dolphins, ducks & baby animals too.</span></div>
+<div class="mini">🌧️<b>Rain</b><span>Watch it. Don't step out in it.</span></div>
+<div class="mini">🍰<b>Belgium chocolate ice cream</b><span>Waffles & Cheesecake.</span></div>
+<div class="mini">🎬<b>Friends</b><span>Especially while eating.</span></div>
+<div class="mini">🖤<b>Black & white</b><span>Favourite Colors.</span></div>
+<div class="mini">🏸<b>Badminton</b><span>And swimming.</span></div>
+</div>
+<div class="center"><button class="btn primary" onclick="go(8)">There's more →</button></div>
+</div>
+</section>
+
+<section class="page" data-title="Soundtrack">
+<div class="wrap">
+<div class="eyebrow">05 · Her soundtrack</div><h2>Ren, press play.</h2>
+<div class="music">
+<div class="musicbox"><h3>Karan Aujla</h3><div class="song">Falling Apart <span class="heart">♥</span></div><div class="song">Boyfriend <span class="heart">♥</span></div><div class="song">Low Fade <span class="heart">♥</span></div><div class="song">Courtside <span class="heart">♥</span></div></div>
+<div class="musicbox"><h3>More favourites</h3><div class="song">Hardest To Love <span class="heart">♥</span></div><div class="song">Heartbreak <span class="heart">♥</span></div><div class="song">Sunflower <span class="heart">♥</span></div><div class="song">Cigarettes After Sex <span class="heart">♥</span></div></div>
+</div>
+<p class="center">Just let me know I can add the audios as well to play here itself.</p>
+<div class="center"><button class="btn primary" onclick="go(9)">Next →</button></div>
+</div>
+</section>
+
+<section class="page" data-title="Video">
+<div class="wrap center">
+<div class="eyebrow">06 · Us</div><h2>A little moving memory.</h2>
+<div class="video-wrap"><video controls playsinline preload="metadata"><source src="assets/our-video.mp4" type="video/mp4"></video></div>
+<p>Some moments deserve more than a photograph my baby's favourite thing biceps.</p>
+<button class="btn primary" onclick="go(10)">Next →</button>
+</div>
+</section>
+
+<section class="page" data-title="Future">
+<div class="wrap center">
+<div class="eyebrow">07 · The future</div><h2>Places we are going to visit.</h2>
+<p>Maybe one day these won't be a wishlist. They'll be memories.</p>
+<div class="future"><span class="pill">🇮🇹 Italy</span><span class="pill">🇬🇷 Greece</span><span class="pill">🌊 Mykonos</span><span class="pill">❄️ Antarctica</span><span class="pill">🌺 Hawaii</span><span class="pill">🏛️ Prague</span><span class="pill">🌴 Zanzibar</span><span class="pill">🐧 Boulders Beach</span><span class="pill">🇹🇭 Sak Yant</span></div>
+<div class="quote">“Wherever we end up, I just want to go there with you.”</div>
+<button class="btn primary" onclick="go(11)">One last thing →</button>
+</div>
+</section>
+
+<section class="page" data-title="Letter">
+<div class="wrap">
+<div class="eyebrow">08 · A letter</div><h2>For you, My Love.</h2>
+<div class="letter">
+<p>My Cutuuuuu,</p>
+<p>I don't know exactly when you became so important to me.</p>
+<p>Maybe it was that first good morning.</p>
+<p>Maybe it was the first time I saw you.</p>
+<p>Maybe it was holding your hand.</p>
+<p>Maybe it was that kiss.</p>
+<p>Or maybe it happened quietly, somewhere between all those little moments.</p>
+<p>What I do know is that I love how you make ordinary things feel special. I love remembering the tiny things you tell me. I love seeing you happy. I love your energy, your craziness, your smile, your little habits, and everything that makes you <em>you</em>.</p>
+<p>You told me that small things matter.</p>
+<p>So here's mine.</p>
+<p>I made you this little corner of the internet because I wanted you to have something that says:</p>
+<p><strong>I see you.<br>I remember you.<br>I appreciate you.<br>And I love you.</strong></p>
+<p>Thank you for becoming my favourite part of my life. ❤️</p>
+<p>And this is only the beginning.</p>
+<p>— Yours Samy, always there for you 🫶🏻</p>
+</div>
+<div class="center"><button class="btn primary" onclick="go(12)">The final page…</button></div>
+</div>
+</section>
+
+<section class="page final" data-title="Final">
+<div class="wrap center">
+<div class="big-heart">❤️</div><div class="eyebrow">one last thing</div>
+<h2>I already miss you.</h2>
+<p class="hero-sub">But luckily… this story isn't over.</p>
+<button class="btn primary" id="secretBtn">One more thing…</button>
+<div class="secret" id="secret">Come make some more memories with me? Also let me know if you need anything else I'm here 🫶🏻</div>
+<p style="margin-top:35px">I LOVE YOU SO MUCH MY BABY MY LOVE RENUKA. ❤️</p>
+</div>
+</section>
+
+<div class="nav">
+<button class="btn" id="back" onclick="prev()">← Back</button>
+<button class="btn primary" id="next" onclick="next()">Next →</button>
+</div>
+
+<script>
+let current=0;
+const pages=[...document.querySelectorAll('.page')], progress=document.getElementById('progress');
+pages.forEach((_,i)=>{const b=document.createElement('span');b.className='bar';progress.appendChild(b)});
+function render(){
+ pages.forEach((p,i)=>{p.classList.toggle('active',i===current);p.classList.toggle('prev',i<current)});
+ [...progress.children].forEach((b,i)=>b.classList.toggle('on',i===current));
+ document.getElementById('back').style.visibility=current===0?'hidden':'visible';
+ document.getElementById('next').style.visibility=current===pages.length-1?'hidden':'visible';
+}
+function go(i){current=Math.max(0,Math.min(pages.length-1,i));render()}
+function next(){go(current+1)} function prev(){go(current-1)}
+document.getElementById('secretBtn').onclick=()=>document.getElementById('secret').classList.add('show');
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')next();if(e.key==='ArrowLeft')prev()});
+const bits=["❤️","🫶🏻","🌸","✨","🤍"];
+setInterval(()=>{const x=document.createElement('span');x.className='floating';x.textContent=bits[Math.floor(Math.random()*bits.length)];x.style.left=Math.random()*100+'vw';x.style.fontSize=(14+Math.random()*15)+'px';x.style.animationDuration=(6+Math.random()*4)+'s';document.body.appendChild(x);setTimeout(()=>x.remove(),10000)},850);
+render();
+</script>
+</body>
+</html>
