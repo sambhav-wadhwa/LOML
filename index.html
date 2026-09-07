@@ -4,6 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>For Ren 👸🏻❤️</title>
+<meta name="apple-mobile-web-app-title" content="Love">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" sizes="1024x1024" href="assets/love-icon-1024.png">
 <meta name="theme-color" content="#070609">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap');
@@ -31,7 +36,7 @@ p{line-height:1.8;color:var(--muted);font-size:14px}
 .story{max-width:720px;margin:auto}.date{color:var(--gold);letter-spacing:.2em;font-size:11px}.story p{white-space:pre-line}
 .quote{font:500 clamp(31px,5vw,55px)/1.05 "Cormorant Garamond";max-width:800px;margin:35px auto}
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.mini{padding:20px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(145deg,#151117,#0d0b0f);min-height:120px}.mini b{display:block;margin:8px 0 4px;font-size:14px}.mini span{color:var(--muted);font-size:12px;line-height:1.5}
-.memory{display:flex;justify-content:center;align-items:center;gap:14px}.memory img{width:min(520px,100%);height:420px;object-fit:cover;border-radius:24px;border:1px solid var(--line);display:block}
+.memory{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.memory img{width:100%;height:360px;object-fit:cover;border-radius:24px;border:1px solid var(--line)}
 .music{display:grid;grid-template-columns:1fr 1fr;gap:14px}.musicbox{padding:25px;border:1px solid var(--line);border-radius:24px;background:var(--panel)}.song{padding:11px 0;border-bottom:1px solid #ffffff0c;display:flex;justify-content:space-between}.song:last-child{border:0}.heart{color:var(--rose)}
 .future{display:flex;flex-wrap:wrap;gap:9px;justify-content:center}.pill{padding:10px 14px;border:1px solid var(--line);border-radius:999px;color:#d8d0d3}
 .letter{background:linear-gradient(145deg,#171117,#0d0a0e);border:1px solid #342931;border-radius:28px;padding:28px clamp(25px,6vw,70px);max-width:850px;margin:auto}.letter p{font:400 clamp(20px,3vw,27px)/1.5 "Cormorant Garamond";color:#e9dfe2}
@@ -39,7 +44,7 @@ p{line-height:1.8;color:var(--muted);font-size:14px}
 .secret{display:none;font:500 34px "Cormorant Garamond";color:var(--rose);margin:24px auto}.secret.show{display:block;animation:up .7s}@keyframes up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 .floating{position:fixed;bottom:-30px;z-index:30;pointer-events:none;animation:float 7s linear forwards;opacity:.7}@keyframes float{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}
 .video-wrap{max-width:700px;margin:auto;border-radius:24px;overflow:hidden;border:1px solid var(--line);background:#000}.video-wrap video{width:100%;max-height:62svh;display:block}
-@media(max-width:700px){.photo-grid,.music{grid-template-columns:1fr}.memory{display:flex}.memory img{width:min(520px,100%);height:400px}.photo-tall{min-height:400px}.cards{grid-template-columns:1fr 1fr}.mini{min-height:105px;padding:16px}.wrap{max-height:88svh}p{font-size:13px}.caption{font-size:22px}}
+@media(max-width:700px){.photo-grid,.memory,.music{grid-template-columns:1fr}.photo-tall{min-height:400px}.cards{grid-template-columns:1fr 1fr}.mini{min-height:105px;padding:16px}.wrap{max-height:88svh}p{font-size:13px}.caption{font-size:22px}}
 @media(max-width:430px){.cards{grid-template-columns:1fr}.hero-sub{padding:0 5px}}
 </style>
 </head>
@@ -108,7 +113,7 @@ And yes… that beauty spot on her nose and the one on her ear too. Beautyyy.</p
 <div class="wrap">
 <div class="eyebrow">03 · The night</div><h2>01 September 2026</h2>
 <div class="photo-grid">
-<div class="photo-card photo-tall"><img src="assets/memory1.jpg"><div class="caption">Will hold this precious hands forever.</div></div>
+<div class="photo-card photo-tall"><img src="assets/memory1.jpg"><div class="caption">Effortlessly gorgeous.</div></div>
 <div class="photo-card"><img src="assets/memory2.jpg"><div class="caption">And she smelled so gooooooodddd.</div></div>
 </div>
 <div class="story"><p>Flowers. Favourite matchas. Her friend's place. Khameera.
@@ -219,7 +224,7 @@ The hugs were the best. The kisses. Everything. I didn't want her to go.</p></di
 <p class="hero-sub">But luckily… this story isn't over.</p>
 <button class="btn primary" id="secretBtn">One more thing…</button>
 <div class="secret" id="secret">Come make some more memories with me? Also let me know if you need anything else I'm here 🫶🏻</div>
-<p style="margin-top:35px">I LOVE YOU SO MUCH MY BABY MY LOVE RENUKA. ❤️</p>
+<p style="margin-top:35px">I LOVE YOU SO MUCH MY BABY MY LOVE REN. ❤️</p>
 </div>
 </section>
 
